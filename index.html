@@ -1,50 +1,39 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <base href="https://rawcdn.githack.com/genizy/subway-surfers/main/">
-    <title>subway surfers</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-</head>
-<body>
+<html>
+  <head>
+    <base href="https://rawcdn.githack.com/Nailington/3kh0-assets/aeb371b7e88542fd5e61eeed9e967a446d84fe1b/subway-surfers/">
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Subway Surfers</title>
+    <link rel="icon" href="img/FirstAvatar.png">
 
-<div id="unity-container">
-    <canvas id="unity-canvas"></canvas>
-    <div id="unity-loading-bar">
-        <div id="unity-progress-bar-empty">
-            <div id="unity-progress-bar-full"></div>
-        </div>
-    </div>
-</div>
+    <script type="text/javascript" src="4399.z.js"></script>
+    <script>
+      window.config = {
+        loader: "unity",
+        debug: false,
+        maxRatio: 16 / 9,
+        minRatio: 9 / 16,
 
-<script src="https://rawcdn.githack.com/Nailington/3kh0-assets/tree/fixy/subway-surfers/UnityLoader.2019.2.js"></script>
-<script>
-    const canvas = document.querySelector("#unity-canvas");
-    const loadingBar = document.querySelector("#unity-loading-bar");
-    const progressBarFull = document.querySelector("#unity-progress-bar-full");
-    const buildUrl = "https://rawcdn.githack.com/Nailington/3kh0-assets/tree/fixy/subway-surfers/Build";
-    const config = {
-        dataUrl: buildUrl + "/1be50d68e138011eae6bacb801eb08e0.data",
-        frameworkUrl: buildUrl + "/a6f4da5d3b683e046257a9fadf64667a.js",
-        codeUrl: buildUrl + "/1da9ff2e4ce142bc08d141de16a01a3b.wasm",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "Vseigru",
-        productName: "Skinwalker",
-        productVersion: "1.0",
-    };
-    loadingBar.style.display = "block";
+        title: "Subway Surfers: San Francisco",
 
-    createUnityInstance(canvas, config, (progress) => {
-        progressBarFull.style.width = (progress * 100) + "%";
-    }).then(() => {
-        loadingBar.style.display = "none";
-    }).catch((message) => {
-        alert("Failed to load game: " + message);
-    });
-    canvas.addEventListener('contextmenu', (e) => e.preventDefault());
-</script>
+        unityVersion: "2019.4.18f1",
+        unityWebglBuildUrl: "Build/SanFrancisco.json",
 
-</body>
+        fileSize: 35,
+        cachedDecompressedFileSizes: {
+          "SanFrancisco.asm.code.unityweb": 9077143,
+          "SanFrancisco.asm.framework.unityweb": 86369,
+          "SanFrancisco.asm.memory.unityweb": 951447,
+          "SanFrancisco.data.unityweb": 18323917,
+          "SanFrancisco.wasm.code.unityweb": 7279617,
+          "SanFrancisco.wasm.framework.unityweb": 90693,
+        },
+      };
+    </script>
+  </head>
+
+  <body>
+    <script src="master-loader.js"></script>
+  </body>
 </html>
