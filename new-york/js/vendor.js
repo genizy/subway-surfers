@@ -19604,7 +19604,12 @@
         e.default = o
     }, , function(t, e, r) {
         t.exports = function() {
-            return new Worker(r.p + "js/workers/worker.21cc18ec46e616e4eed8.js")
+            fetch(r.p + "js/workers/worker.21cc18ec46e616e4eed8.js").then(res => {
+                res.text().then(text => {
+                    const blob = new Blob([text], { type: 'application/javascript' });
+                    return worker = new Worker(URL.createObjectURL(blob));
+                })
+            });
         }
     }, , , function(t, a, s) {
         "use strict";
@@ -23947,7 +23952,13 @@
         }, function(t, e) {
             t(Collada.parse(e))
         }) : (Collada.launchWorker = function() {
-            var t = this.worker = new Worker(Collada.workerPath + "collada.js");
+            var t = null;
+            fetch(Collada.workerPath + "collada.js").then(res => {
+                res.text().then(text => {
+                    const blob = new Blob([text], { type: 'application/javascript' });
+                    t = this.worker = new Worker(URL.createObjectURL(blob));
+                })
+            });
             t.callback_ids = {}, t.addEventListener("error", function(t) {
                 Collada.onerror && Collada.onerror(err)
             }), t.addEventListener("message", function(t) {
